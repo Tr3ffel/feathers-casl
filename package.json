@@ -17,8 +17,8 @@
     "authorization"
   ],
   "license": "MIT",
-  "main": "lib/",
-  "types": "lib/",
+  "main": "dist/",
+  "types": "dist/",
   "directories": {
     "test": "test",
     "lib": "lib"
