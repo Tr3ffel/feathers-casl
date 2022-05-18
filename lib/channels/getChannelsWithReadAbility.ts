@@ -56,6 +56,8 @@ export default (
   if (typeof options.useActionName === "string") {
     method = options.useActionName;
   } else {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     const eventName = getEventName(context.method);
     if (eventName && options.useActionName[eventName]) {
       method = options.useActionName[eventName];

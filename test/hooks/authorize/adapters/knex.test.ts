@@ -60,6 +60,7 @@ const boolFields = [
 
 const afterHooks = [
   (context: HookContext) => {
+    // @ts-ignore
     let items = getItems(context);
     const isArray = Array.isArray(items);
     items = (isArray) ? items : [items];

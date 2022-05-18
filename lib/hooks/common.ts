@@ -44,6 +44,8 @@ export const checkCreatePerItem = (
   if (!checkCreateForData) { return context; }
 
   // we have all information we need (maybe we need populated data?)
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   let items = getItems(context);
   items = (Array.isArray(items)) ? items : [items];
 

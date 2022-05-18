@@ -48,6 +48,8 @@ const checkCan = async <S>(
     };
   }
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   const getMethod = (service._get) ? "_get" : "get";
   
   const item = await service[getMethod](id, params);

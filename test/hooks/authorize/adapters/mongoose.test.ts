@@ -42,6 +42,7 @@ const makeService = () => {
 
 const afterHooks = [
   (context: HookContext) => {
+    // @ts-ignore
     let items = getItems(context);
     items = (Array.isArray(items)) ? items : [items];
   

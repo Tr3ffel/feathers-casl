@@ -1,5 +1,5 @@
 import assert from "assert";
-import feathers, { HookContext } from "@feathersjs/feathers";
+import { feathers,  HookContext } from "@feathersjs/feathers";
 import { Service } from "feathers-memory";
 import { createAliasResolver, defineAbility } from "@casl/ability";
 
@@ -30,6 +30,7 @@ describe("authorize.options.test.ts", function () {
           }
         })
       );
+      // @ts-ignore
       service = app.service("test");
       
       //@ts-ignore
@@ -147,6 +148,7 @@ describe("authorize.options.test.ts", function () {
           }
         })
       );
+      // @ts-ignore
       service = app.service("test");
       //@ts-ignore
       service.modelName = "Test";
@@ -183,6 +185,7 @@ describe("authorize.options.test.ts", function () {
           }
         })
       );
+      // @ts-ignore
       service = app.service("test");
       //@ts-ignore
       service.modelName = "Test";
@@ -221,6 +224,7 @@ describe("authorize.options.test.ts", function () {
           }
         })
       );
+      // @ts-ignore
       service = app.service("test");
       //@ts-ignore
       service.hooks({
@@ -245,6 +249,7 @@ describe("authorize.options.test.ts", function () {
           }
         })
       );
+      // @ts-ignore
       service = app.service("test");
       //@ts-ignore
       service.hooks({
@@ -276,6 +281,7 @@ describe("authorize.options.test.ts", function () {
           }
         })
       );
+      // @ts-ignore
       service = app.service("test");
       //@ts-ignore
       service.hooks({
@@ -309,6 +315,7 @@ describe("authorize.options.test.ts", function () {
           }
         })
       );
+      // @ts-ignore
       service = app.service("test");
       //@ts-ignore
       service.hooks({
@@ -338,6 +345,7 @@ describe("authorize.options.test.ts", function () {
           }
         })
       );
+      // @ts-ignore
       service = app.service("test");
       //@ts-ignore
       service.hooks({
@@ -366,6 +374,7 @@ describe("authorize.options.test.ts", function () {
           }
         })
       );
+      // @ts-ignore
       service = app.service("test");
       //@ts-ignore
       service.hooks({
@@ -398,6 +407,7 @@ describe("authorize.options.test.ts", function () {
           }
         })
       );
+      // @ts-ignore
       service = app.service("test");
       //@ts-ignore
       service.hooks({
@@ -438,6 +448,7 @@ describe("authorize.options.test.ts", function () {
           }
         })
       );
+      // @ts-ignore
       service = app.service("test");
       //@ts-ignore
       service.hooks({
@@ -566,6 +577,7 @@ describe("authorize.options.test.ts", function () {
           }
         })
       );
+      // @ts-ignore
       service = app.service("test");
       //@ts-ignore
       service.hooks({
@@ -597,6 +609,7 @@ describe("authorize.options.test.ts", function () {
           }
         })
       );
+      // @ts-ignore
       service = app.service("test");
       //@ts-ignore
       service.hooks({
@@ -629,6 +642,7 @@ describe("authorize.options.test.ts", function () {
           }
         })
       );
+      // @ts-ignore
       service = app.service("test");
       //@ts-ignore
       service.hooks({

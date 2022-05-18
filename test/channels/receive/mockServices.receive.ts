@@ -53,9 +53,6 @@ export default function(app: Application): void {
   const authService = app.service("authentication");
   authService.hooks({
     after: {
-      all: [],
-      find: [],
-      get: [],
       create: [
         (context: HookContext): HookContext => {
           const { user } = context.result;
@@ -67,9 +64,6 @@ export default function(app: Application): void {
           return context;
         }
       ],
-      update: [],
-      patch: [],
-      remove: []
     }
   });
 
@@ -112,13 +106,9 @@ export default function(app: Application): void {
 
   users.hooks({
     before: {
-      all: [],
-      find: [],
-      get: [],
       create: [ hashPassword("password") ],
       update: [ hashPassword("password") ],
       patch: [ hashPassword("password") ],
-      remove: []
     },
     after: {
       all: [ 

@@ -77,6 +77,7 @@ const afterHooks = [
   (context: HookContext) => {
     const { Model } = context.service;
     const fields = Model.fieldRawAttributesMap;
+    // @ts-ignore
     let items = getItems(context);
     items = (Array.isArray(items)) ? items : [items];
 

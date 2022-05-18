@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import assert from "assert";
 import { createAliasResolver, defineAbility } from "@casl/ability";
-import feathers from "@feathersjs/feathers";
+import { feathers } from "@feathersjs/feathers";
 import authorize from "../../../lib/hooks/authorize/authorize.hook";
 import { Service } from "feathers-memory";
 import { joinQuery } from "feathers-fletching";
@@ -49,23 +49,11 @@ describe("authorize.relations", function() {
         all: [
           authorize()
         ],
-        find: [],
-        get: [],
-        create: [],
-        update: [],
-        patch: [],
-        remove: []
       },
       after: {
         all: [
           authorize()
         ],
-        find: [],
-        get: [],
-        create: [],
-        update: [],
-        patch: [],
-        remove: []
       }
     });
 
@@ -75,24 +63,12 @@ describe("authorize.relations", function() {
           authorize(),
           joinQueriesAlbums,
         ],
-        find: [],
-        get: [],
-        create: [],
-        update: [],
-        patch: [],
-        remove: []
       },
       after: {
         all: [
           joinQueriesAlbums,
           authorize()
         ],
-        find: [],
-        get: [],
-        create: [],
-        update: [],
-        patch: [],
-        remove: []
       }
     });
 
@@ -147,6 +123,7 @@ describe("authorize.relations", function() {
       await assert.rejects(
         serviceAlbums.find({ 
           query: { "artist.name": "Blink182" },
+          // @ts-ignore
           ability: defineAbility((can) => {
             can("read", "albums");
             can("read", "artists", { name: "Justin Bieber" });
@@ -158,6 +135,7 @@ describe("authorize.relations", function() {
 
       const albumsOfBlink = await serviceAlbums.find({ 
         query: { "artist.name": "Blink182" },
+        // @ts-ignore
         ability: defineAbility((can) => {
           can("read", "albums");
           can("read", "artists", { name: "Blink182" });
@@ -190,6 +168,7 @@ describe("authorize.relations", function() {
       await assert.rejects(
         serviceAlbums.find({ 
           query: { "artist.name": "Blink182", $select: ["id"] },
+          // @ts-ignore
           ability: defineAbility((can) => {
             can("read", "albums");
             can("read", "artists", { name: "Justin Bieber" });
@@ -201,6 +180,7 @@ describe("authorize.relations", function() {
       
       const albumsOfBlink = await serviceAlbums.find({ 
         query: { "artist.name": "Blink182", $select: ["id"] },
+        // @ts-ignore
         ability: defineAbility((can) => {
           can("read", "albums");
           can("read", "artists", { name: "Blink182" });
@@ -231,7 +211,8 @@ describe("authorize.relations", function() {
       const purpose = await serviceAlbums.create({ name: "Purpose", artistId: justinBieber.id, date: 2020 });
   
       const albumsOfBlink = await serviceAlbums.find({ 
-        query: {},
+        query: {},  
+        // @ts-ignore
         ability: defineAbility((can) => {
           can("read", "albums", { "artist.name": "Blink182" });
           can("read", "artists");
@@ -267,6 +248,7 @@ describe("authorize.relations", function() {
         stars: 5
       }, { 
         query: {},
+        // @ts-ignore
         ability: defineAbility((can) => {
           can("read", "albums");
           can(["update"], "albums", { "artist.name": "Blink182" });
@@ -288,6 +270,7 @@ describe("authorize.relations", function() {
         query: {
           "artist.name": { $ne: "Blink182" }
         },
+        // @ts-ignore
         paginate: false
       });
 
@@ -318,6 +301,7 @@ describe("authorize.relations", function() {
         stars: 5
       }, { 
         query: {},
+        // @ts-ignore
         ability: defineAbility((can) => {
           can("read", "albums");
           can(["update"], "albums", { "artist.name": "Blink182" });
@@ -339,6 +323,7 @@ describe("authorize.relations", function() {
         query: {
           "artist.name": { $ne: "Blink182" }
         },
+        // @ts-ignore
         paginate: false
       });
 

@@ -197,6 +197,7 @@ describe("checkBasicPermission.test.ts", function() {
             query: {},
           }
         } as unknown as HookContext;
+        // @ts-ignore
         markHookForSkip("checkBasicPermission", "all", context);
         return context;
       };

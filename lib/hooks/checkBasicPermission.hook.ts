@@ -20,6 +20,8 @@ export default (
   return async (context: HookContext): Promise<HookContext> => {
     if (
       !_options?.notSkippable && (
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         shouldSkip(HOOKNAME, context) ||
         context.type !== "before" ||
         !context.params

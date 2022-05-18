@@ -133,6 +133,8 @@ export const refetchItems = async (
   params?: Params
 ): Promise<unknown[] | undefined> => {
   if (context.type !== "after") { return; }
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   const itemOrItems = getItems(context);
 
   const items = (!itemOrItems || Array.isArray(itemOrItems)) ? itemOrItems : [itemOrItems];
@@ -144,6 +146,8 @@ export const refetchItems = async (
   params = Object.assign({}, params, { paginate: false });
 
   markHookForSkip(HOOKNAME, "all", { params });
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   delete params.ability;
   
   const query = Object.assign({}, params.query, { [idField]: { $in: ids } });
@@ -176,6 +180,8 @@ export const checkMulti = (
   options?: Pick<AuthorizeHookOptions, "actionOnForbidden">
 ): boolean => {
   const { method } = context;
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   const currentIsMulti = isMulti(context);
   if (!currentIsMulti) { return true; }
   if (

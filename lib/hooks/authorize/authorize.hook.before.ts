@@ -41,6 +41,8 @@ export default async (
 ): Promise<HookContext> => {
   if (
     !options?.notSkippable && (
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       shouldSkip(HOOKNAME, context) ||
         context.type !== "before" ||
         !context.params
@@ -75,7 +77,8 @@ export default async (
     // Ignore internal or not authenticated requests
     return context;
   }
-
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   const multi = isMulti(context);
     
   // if context is with multiple items, there's a change that we need to handle each item separately

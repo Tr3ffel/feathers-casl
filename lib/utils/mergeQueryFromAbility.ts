@@ -71,6 +71,8 @@ export default function mergeQueryFromAbility<T>(
         $and.forEach(q => {
           query = mergeQuery(query, q, {
             defaultHandle: "intersect",
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             operators: service.operators,
             useLogicalConjunction: true
           });
@@ -85,6 +87,8 @@ export default function mergeQueryFromAbility<T>(
     if (!originalQuery) {
       return query;
     } else {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       const operators = service.options?.whitelist;
       return mergeQuery(
         originalQuery, 

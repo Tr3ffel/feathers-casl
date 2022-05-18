@@ -1,7 +1,7 @@
 import assert from "assert";
 import { createAliasResolver, defineAbility } from "@casl/ability";
 import { Sequelize, Op, DataTypes } from "sequelize";
-import feathers from "@feathersjs/feathers";
+import { feathers } from "@feathersjs/feathers";
 import { Service } from "feathers-sequelize";
 import authorize from "../../lib/hooks/authorize/authorize.hook";
 import path from "path";
@@ -73,12 +73,6 @@ describe("authorize.users.test.ts", function() {
           }),
           hook
         ],
-        find: [],
-        get: [],
-        create: [],
-        update: [],
-        patch: [],
-        remove: []
       },
       after: {
         all: [
@@ -86,12 +80,6 @@ describe("authorize.users.test.ts", function() {
             adapter: "feathers-sequelize"
           })
         ],
-        find: [],
-        get: [],
-        create: [],
-        update: [],
-        patch: [],
-        remove: []
       }
     });
 
@@ -110,6 +98,7 @@ describe("authorize.users.test.ts", function() {
     const user2 = await service.create({ name: "user2", roleId: 2, companyId: 1 });
     const ability = mockAbility(admin);
 
+    // @ts-ignore
     const user2Patched = await service.patch(user2.id, { roleId: 3 }, { ability });
     assert.deepStrictEqual(user2Patched.roleId, 3);
     assert.ok(hadAbility);

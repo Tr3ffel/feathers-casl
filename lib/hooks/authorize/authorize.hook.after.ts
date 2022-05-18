@@ -34,12 +34,16 @@ export default async (
 ): Promise<HookContext> => {
   if (
     !options?.notSkippable && (
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       shouldSkip(HOOKNAME, context) ||
         context.type !== "after" ||
         !context.params
     )
   ) { return context; }
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   const itemOrItems = getItems(context);
   if (!itemOrItems) { return context; }
 
@@ -126,6 +130,8 @@ export default async (
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   replaceItems(context, result);
 
   return context;

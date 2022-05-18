@@ -1,5 +1,5 @@
 import assert from "assert";
-import feathers, { Application } from "@feathersjs/feathers";
+import { feathers, Application } from "@feathersjs/feathers";
 import socketio from "@feathersjs/socketio-client";
 import { Server } from "http";
 import io from "socket.io-client";
@@ -50,10 +50,7 @@ describe("channels.custom-actions.test.ts", function() {
     app = mock.app;
 
     const port = app.get("port");
-    server = app.listen(port);
-    await new Promise((resolve) => {
-      server.on("listening", resolve);
-    });
+    server = await app.listen(port);
 
     users = await app.service("users").create(users);
 
@@ -73,7 +70,6 @@ describe("channels.custom-actions.test.ts", function() {
     const client = feathers();
     client.configure(socketio(socket));
     clients.push(client);
-
     await Promise.all(promises);
   });
 
